@@ -11,8 +11,8 @@ namespace InventorySystem.Core.Interfaces
     {
         Task<IEnumerable<Item>> GetAllAsync();
         Task<Item?> GetItemByIdAsync(int itemId);
-        Task<Item> CreateItemAsync(Item item);
-        Task<Item> UpdateItemAsync(Item item);
+        Task<Item> CreateItem(Item item);
+        Task<Item> UpdateItem(Item item);
         Task<bool> DeleteItemAsync(Item item);
         Task SaveChangesAsync();
     }

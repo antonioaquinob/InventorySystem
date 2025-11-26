@@ -30,7 +30,7 @@ namespace InventorySystem.API.Services
                     QuantityAvailable = createItemDto.QuantityAvailable,
                     CriticalLevel = createItemDto.CriticalLevel
                 };
-                await _itemRepository.CreateItemAsync(item);
+                await _itemRepository.CreateItem(item);
                 await _itemRepository.SaveChangesAsync();
                 return item;
             }
@@ -57,7 +57,7 @@ namespace InventorySystem.API.Services
                 item.QuantityAvailable = updateItemDto.QuantityAvailable;
                 item.CriticalLevel = updateItemDto.CriticalLevel;
 
-                await _itemRepository.UpdateItemAsync(item);
+                await _itemRepository.UpdateItem(item);
                 await _itemRepository.SaveChangesAsync();
                 return item;
             }
