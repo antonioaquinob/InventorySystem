@@ -1,4 +1,6 @@
 
+using Microsoft.EntityFrameworkCore;
+using InventorySystem.API.Data;
 namespace InventorySystem.API
 {
     public class Program
@@ -7,7 +9,22 @@ namespace InventorySystem.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // ============================
+            // DATABASE
+            // ============================
+            builder.Services.AddDbContext<Data.InventoryDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            // ============================
+            // Repositories
+            // ============================
+            builder.Services.AddScoped<Core.Interfaces.IItemRepository, Repositories.ItemRepository>();
+
+            // ============================
+            // Services
+            // ============================
+            builder.Services.AddScoped<Core.Interfaces.IItemService, Services.ItemService>();
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
