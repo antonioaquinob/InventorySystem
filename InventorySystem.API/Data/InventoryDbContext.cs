@@ -8,6 +8,7 @@ namespace InventorySystem.API.Data
         {
         }
         public DbSet<Item> Items { get; set; } = null!;
+        public DbSet<User> Users { get; set; } = null!;
         public DbSet<ItemTransaction> ItemTransactions { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

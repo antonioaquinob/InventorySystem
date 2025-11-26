@@ -22,13 +22,13 @@ namespace InventorySystem.API.Repositories
             return await _context.Items.FindAsync(itemId);
         }
 
-        public Task<Item> CreateItemAsync(Item item)
+        public Task<Item> CreateItem(Item item)
         {
             _context.Items.Add(item);
             return Task.FromResult(item);
         }
         
-        public Task<Item> UpdateItemAsync(Item item)
+        public Task<Item> UpdateItem(Item item)
         {
             _context.Items.Update(item);
             return Task.FromResult(item);
@@ -45,9 +45,9 @@ namespace InventorySystem.API.Repositories
 
         }
 
-        public Task SaveChangesAsync()
+        public async Task SaveChangesAsync()
         {
-            return _context.SaveChangesAsync();
+           await _context.SaveChangesAsync();
         }
     }
 }

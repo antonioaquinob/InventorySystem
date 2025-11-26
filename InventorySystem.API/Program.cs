@@ -1,6 +1,5 @@
 
 using Microsoft.EntityFrameworkCore;
-using InventorySystem.API.Data;
 namespace InventorySystem.API
 {
     public class Program
@@ -19,11 +18,13 @@ namespace InventorySystem.API
             // Repositories
             // ============================
             builder.Services.AddScoped<Core.Interfaces.IItemRepository, Repositories.ItemRepository>();
+            builder.Services.AddScoped<Core.Interfaces.IUserRepository, Repositories.UserRepository>();
 
             // ============================
             // Services
             // ============================
             builder.Services.AddScoped<Core.Interfaces.IItemService, Services.ItemService>();
+            builder.Services.AddScoped<Core.Interfaces.IUserService, Services.UserService>();
 
 
             builder.Services.AddControllers();
