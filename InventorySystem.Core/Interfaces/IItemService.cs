@@ -11,10 +11,9 @@ namespace InventorySystem.Core.Interfaces
     public interface IItemService
     {
         Task<Item> CreateItemAsync(CreateItemDto createItemDto);
-        Task<Item> UpdateItemAsync(int itemId, UpdateItemDto updateItemDto);
+        Task<Item?> UpdateItemAsync(int itemId, UpdateItemDto updateItemDto);
         Task<bool> DeleteItemAsync(int itemId);
         Task<Item?> GetItemByIdAsync(int itemId);
-        Task<IEnumerable<Item>> GetAllItemsAsync();
-        Task<IEnumerable<ItemTransaction>> GetItemTransactionsAsync(int itemId);
+        Task<IEnumerable<Item>> GetAllItemsAsync(string? search = null, string? sortBy = null, bool sortDesc = false);
     }
 }
